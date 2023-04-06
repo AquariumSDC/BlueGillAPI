@@ -10,17 +10,17 @@
 --
 -- ---
 
-DROP TABLE IF EXISTS `questions`;
+DROP TABLE IF EXISTS questions;
 
-CREATE TABLE `questions` (
-  `question_id` INTEGER NULL DEFAULT NULL,
-  `product_id` VARCHAR NULL DEFAULT NULL,
-  `question_body` VARCHAR NULL DEFAULT NULL,
-  `question_date` DATE NULL DEFAULT NULL,
-  `asker_name` VARCHAR NULL DEFAULT NULL,
-  `question_helpfulness` INTEGER NULL DEFAULT NULL,
-  `reported` TINYINT NULL DEFAULT NULL,
-  PRIMARY KEY (`question_id`)
+CREATE TABLE questions (
+  id SERIAL NOT NULL,
+  product_id VARCHAR NULL DEFAULT NULL,
+  question_body VARCHAR NULL DEFAULT NULL,
+  question_date DATE NULL DEFAULT NULL,
+  asker_name VARCHAR NULL DEFAULT NULL,
+  question_helpfulness INTEGER NULL DEFAULT NULL,
+  reported SMALLINT NULL DEFAULT NULL,
+  PRIMARY KEY (id)
 );
 
 -- ---
@@ -28,16 +28,16 @@ CREATE TABLE `questions` (
 --
 -- ---
 
-DROP TABLE IF EXISTS `answers`;
+DROP TABLE IF EXISTS answers;
 
-CREATE TABLE `answers` (
-  `answer_id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `question_id_Questions` INTEGER NULL DEFAULT NULL,
-  `body` VARCHAR NULL DEFAULT NULL,
-  `date` DATE NULL DEFAULT NULL,
-  `answerer_name` VARCHAR NULL DEFAULT NULL,
-  `helpfulness` INTEGER NULL DEFAULT NULL,
-  PRIMARY KEY (`answer_id`)
+CREATE TABLE answers (
+  id SERIAL NOT NULL,
+  id_Questions INTEGER NULL DEFAULT NULL,
+  body VARCHAR NULL DEFAULT NULL,
+  date DATE NULL DEFAULT NULL,
+  answerer_name VARCHAR NULL DEFAULT NULL,
+  helpfulness INTEGER NULL DEFAULT NULL,
+  PRIMARY KEY (id)
 );
 
 -- ---
@@ -45,21 +45,21 @@ CREATE TABLE `answers` (
 --
 -- ---
 
-DROP TABLE IF EXISTS `photos`;
+DROP TABLE IF EXISTS photos;
 
-CREATE TABLE `photos` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `answer_id_answers` INTEGER NULL DEFAULT NULL,
-  `url` VARCHAR NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE photos (
+  id SERIAL NOT NULL,
+  id_answers INTEGER NULL DEFAULT NULL,
+  url VARCHAR NULL DEFAULT NULL,
+  PRIMARY KEY (id)
 );
 
 -- ---
 -- Foreign Keys
 -- ---
 
-ALTER TABLE `answers` ADD FOREIGN KEY (question_id_Questions) REFERENCES `questions` (`question_id`);
-ALTER TABLE `photos` ADD FOREIGN KEY (answer_id_answers) REFERENCES `answers` (`answer_id`);
+ALTER TABLE answers ADD FOREIGN KEY (id_Questions) REFERENCES questions (id);
+ALTER TABLE photos ADD FOREIGN KEY (id_answers) REFERENCES answers (id);
 
 -- ---
 -- Table Properties
