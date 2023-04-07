@@ -9,10 +9,11 @@ CREATE TABLE questions (
   id SERIAL NOT NULL,
   product_id VARCHAR NOT NUll,
   question_body VARCHAR NOT NULL,
-  question_date DATE NOT NULL,
+  question_date BIGINT NOT NULL,
   asker_name VARCHAR NOT NULL,
-  question_helpfulness INTEGER NOT NULL DEFAULT 0,
+  asker_email VARCHAR NOT NULL,
   reported SMALLINT NULL DEFAULT 0,
+  question_helpfulness INTEGER NOT NULL DEFAULT 0,
   PRIMARY KEY (id)
 );
 
@@ -27,8 +28,10 @@ CREATE TABLE answers (
   id SERIAL NOT NULL,
   id_Questions INTEGER NOT NULL,
   body VARCHAR NOT NULL,
-  date DATE NOT NULL,
+  date BIGINT NOT NULL,
   answerer_name VARCHAR NOT NULL,
+  answerer_email VARCHAR NOT NULL,
+  reported INTEGER NOT NULL DEFAULT 0,
   helpfulness INTEGER NOT NULL DEFAULT 0,
   PRIMARY KEY (id)
 );

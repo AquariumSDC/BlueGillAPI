@@ -1,7 +1,62 @@
-const { Client } = require('pg')
-const client = new Client()
-await client.connect()
+require('dotenv').config()
+const { Pool } = require('pg')
 
-const res = await client.query('SELECT $1::text as message', ['Hello world!'])
-console.log(res.rows[0].message) // Hello world!
-await client.end()
+const pool = new Pool({
+  host: process.env.PGHOST,
+  port: process.env.PGPORT,
+  database: process.env.PGDATABASE,
+  password: process.env.PGPASSWORD,
+  user: process.env.PGUSER,
+})
+
+const dbconnect = async () => await pool.connect()
+dbconnect();
+
+const dropTables = async () => {
+  await pool.query('DROP TABLE IF EXISTS photos');
+  await pool.query('DROP TABLE IF EXISTS answers');
+  await pool.query('DROP TABLE IF EXISTS questions');
+  return;
+};
+
+const createTables = async () => {
+  await pool.query(`CREATE TABLE questions (
+    id SERIAL NOT NULL,
+    product_id VARCHAR NOT NUll,
+    question_body VARCHAR NOT NULL,
+    question_date BIGINT NOT NULL,
+    asker_name VARCHAR NOT NULL,
+    asker_email VARCHAR NOT NULL,
+    reported SMALLINT NULL DEFAULT 0,
+    question_helpfulness INTEGER NOT NULL DEFAULT 0,
+    PRIMARY KEY (id))`
+  )
+
+  await pool.query(`CREATE TABLE answers (
+    id SERIAL NOT NULL,
+    id_Questions INTEGER NOT NULL,
+    body VARCHAR NOT NULL,
+    date BIGINT NOT NULL,
+    answerer_name VARCHAR NOT NULL,
+    answerer_email VARCHAR NOT NULL,
+    reported INTEGER NOT NULL DEFAULT 0,
+    helpfulness INTEGER NOT NULL DEFAULT 0,
+    PRIMARY KEY (id))`
+  )
+
+  await pool.query(`CREATE TABLE photos (
+    id SERIAL NOT NULL,
+    id_answers INTEGER NOT NULL,
+    url VARCHAR NOT NULL,
+    PRIMARY KEY (id))`
+  )
+  pool.end()
+  .then(() => console.log('pool has ended'))
+  .catch(err => console.log(err));
+}
+
+const dropAndCreateTables = async () => {
+  await dropTables();
+  await createTables();
+}
+dropAndCreateTables();
