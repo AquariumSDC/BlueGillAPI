@@ -1,3 +1,4 @@
+const controller = require('./controllers.js');
 const express = require('express');
 const router = express.Router()
 
@@ -8,6 +9,8 @@ const router = express.Router()
 router.get('/', (req, res) => {
   res.send('Welcome to the BlueGillAPI!')
 })
+
+router.get('/qa/questions', controller.getQuestions);
 
 
 module.exports = router;

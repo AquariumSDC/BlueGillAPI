@@ -7,8 +7,9 @@ module.exports = {
     // let query =  `SELECT json_build_object('data', ROW(id, product_id)) FROM questions WHERE product_id = ${product_id}`;
     let query =  `SELECT * FROM questions WHERE product_id = ${product_id}`;
     let res = await db.query(query)
-    console.log('questions: ', res.rows);
     db.end();
+    return res;
+
   },
 
   // get all answers for a questions
