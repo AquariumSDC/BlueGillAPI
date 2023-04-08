@@ -40,11 +40,21 @@ module.exports = {
   },
 
   getAnswers: (req, res) => {
-
+    // GET ANSWERS FOR QUESTION
     model.getAnswersById(req.params.question_id)
-    .then(data => {
-      // console.log('data', data);
-      res.send(data);
+    .then(async answers => {
+      // GET PHOTOS FOR EACH ANSWER
+      for (let answer of Object.values(answers)) {
+        answer.photos = await model.getPhotosById(answer.id);
+      }
+      return answers;
+    })
+    .then(answers => {
+      let question = {
+        id: req.params.question_id,
+        results: answers,
+      }
+      res.send(question);
     })
     .catch(err => res.send(err));
   },
