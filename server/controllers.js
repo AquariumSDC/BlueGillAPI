@@ -1,7 +1,7 @@
 const model = require('./models.js');
 
 module.exports = {
-
+  // GETS
   getQuestions: (req, res) => {
     model.getQuestionsById(req.query.product_id)
     .then(async questions => {
@@ -34,13 +34,7 @@ module.exports = {
     .catch(err => res.send(err))
   },
 
-  postQuestion: (req, res) => {
-    // model query
-    // something
-  },
-
   getAnswers: (req, res) => {
-    // GET ANSWERS FOR QUESTION
     model.getAnswersById(req.params.question_id)
     .then(async answers => {
       // GET PHOTOS FOR EACH ANSWER
@@ -61,4 +55,12 @@ module.exports = {
     .catch(err => res.send(err));
   },
 
+  // POSTS
+  postQuestion: (req, res) => {
+    req.body.date = Date.now()
+    model.postQuestion(req.body)
+    .then((data) => res.send(data))
+    .catch(err => res.send(err))
+
+  },
 }

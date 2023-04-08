@@ -6,33 +6,18 @@ router.get('/', (req, res) => {
   res.send('Welcome to the BlueGillAPI!')
 })
 
-// /qa/questions
-  // GET
-  // POST
-router.get('/qa/questions', controller.getQuestions);
-router.post('/qa/questions', controller.postQuestion);
+// GET
+router.get('/questions', controller.getQuestions);
+router.get('/questions/:question_id/answers', controller.getAnswers);
 
-// /qa/questions/:question_id/helpful
-  // PUT
-router.put('/qa/questions/:question_id/helpful', );
+// POST
+router.post('/questions', controller.postQuestion);
+router.post('/questions/:question_id/answers');
 
-// /qa/questions/:question_id/report
-  // PUT
-router.put('/qa/questions/:question_id/report');
-
-// /qa/questions/:question_id/answers
-  // GET
-  // POST
-router.get('/qa/questions/:question_id/answers', controller.getAnswers);
-router.post('/qa/questions/:question_id/answers');
-
-
-// /qa/answers/:answer_id/helpful
-  // PUT
-router.put('/qa/answers/:answer_id/helpful')
-
-// /qa/answers/:answer_id/report
-  // PUT
-router.put('/qa/answers/:answer_id/report')
+// PUT
+router.put('/questions/:question_id/helpful', );
+router.put('/questions/:question_id/report');
+router.put('/answers/:answer_id/helpful')
+router.put('/answers/:answer_id/report')
 
 module.exports = router;

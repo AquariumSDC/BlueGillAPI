@@ -37,8 +37,15 @@ const models = {
     let query = `SELECT id, url FROM photos WHERE id_answers = ${answer_id}`;
     let res = await db.query(query)
     return res.rows;
-  }
+  },
 
+  postQuestion: async ({body, name, email, product_id, date}) => {
+    let query = `INSERT INTO questions(product_id, question_body, question_date,
+      asker_name, asker_email)
+      VALUES(${product_id}, '${body}', ${date}, '${name}', '${email}')`;
+    await db.query(query);
+    return 'posted';
+  }
 }
 
 
