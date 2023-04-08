@@ -12,7 +12,7 @@ router.get('/questions/:question_id/answers', controller.getAnswers);
 
 // POST
 router.post('/questions', controller.postQuestion);
-router.post('/questions/:question_id/answers');
+router.post('/questions/:question_id/answers', controller.postAnswer);
 
 // PUT
 router.put('/questions/:question_id/helpful', );

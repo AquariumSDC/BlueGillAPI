@@ -61,6 +61,12 @@ module.exports = {
     model.postQuestion(req.body)
     .then((data) => res.send(data))
     .catch(err => res.send(err))
+  },
 
+  postAnswer: (req, res) => {
+    req.body.date = Date.now()
+    model.postAnswer(req.params.question_id, req.body)
+    .then(data => res.send(data))
+    .catch(err => res.send(err));
   },
 }

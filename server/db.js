@@ -9,7 +9,5 @@ const pool = new Pool({
   user: process.env.PGUSER,
 })
 
-// const dbconnect = async () => await pool.connect()
-
 module.exports = pool;
 

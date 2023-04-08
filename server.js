@@ -8,5 +8,5 @@ app.use(express.json())
 app.use('/qa', QnA);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`listening on port ${port}`)
 })
