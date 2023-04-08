@@ -4,12 +4,11 @@ module.exports = {
 
   // get all questions for a product
   getQuestionsById: async (product_id) => {
-    // let query =  `SELECT json_build_object('data', ROW(id, product_id)) FROM questions WHERE product_id = ${product_id}`;
-    let query =  `SELECT * FROM questions WHERE product_id = ${product_id}`;
+    let query =  `SELECT json_agg(json_build_object('question_id', id, 'question_body', question_body, 'question_date', question_date,
+    'asker_name', asker_name, 'question_helpfulness', question_helpfulness, 'reported', reported))
+    FROM questions WHERE product_id = ${product_id}`;
     let res = await db.query(query)
-    // db.end();
-    return res;
-
+    return res.rows[0].json_agg;
   },
 
   // get all answers for a questions
@@ -27,8 +26,3 @@ module.exports = {
   }
 
 }
-
-// TEST METHODS
-// models.getQuestionsById(1);
-// models.getAnswersById(1);
-// models.getPhotosById(5);
