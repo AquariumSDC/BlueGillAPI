@@ -9,7 +9,7 @@ module.exports = {
       for (let question of questions) {
         question.answers = {};
         let answerList = await model.getAnswersById(question.id);
-        for (let answer of answerList.rows) {
+        for (let answer of answerList) {
           question.answers[answer.id] = answer;
         }
       }
