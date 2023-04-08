@@ -41,7 +41,8 @@ const models = {
   getPhotosById: async (answer_id) => {
     let query = `SELECT id, url FROM photos WHERE id_answers = ${answer_id}`;
     let res = await db.query(query)
-    console.log('photos: ', res.rows);
+    // console.log('photos: ', res.rows);
+    return res.rows;
   }
 
   // getPhotosForAllAnswers: async (answer_ids) => {
