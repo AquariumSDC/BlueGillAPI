@@ -29,7 +29,7 @@ module.exports = {
         id: req.query.product_id,
         results: questions,
       }
-      res.send(product)
+      res.status(200).send(product)
     })
     .catch(err => res.send(err))
   },
@@ -50,7 +50,7 @@ module.exports = {
         count: 'placeholder',
         results: answers,
       }
-      res.send(question);
+      res.status(200).send(question);
     })
     .catch(err => res.send(err));
   },
@@ -59,14 +59,39 @@ module.exports = {
   postQuestion: (req, res) => {
     req.body.date = Date.now()
     model.postQuestion(req.body)
-    .then((data) => res.send(data))
+    .then((data) => res.status(201).send(data))
     .catch(err => res.send(err))
   },
 
   postAnswer: (req, res) => {
     req.body.date = Date.now()
     model.postAnswer(req.params.question_id, req.body)
-    .then(data => res.send(data))
+    .then(data => res.status(201).send(data))
+    .catch(err => res.send(err));
+  },
+
+  // PUTS
+  questionHelpful: (req, res) => {
+    model.markQuestionHelpful(req.params.question_id)
+    .then(data => res.status(204).send(data))
+    .catch(err => res.send(err));
+  },
+
+  reportQuestion: (req, res) => {
+    model.reportQuestion(req.params.question_id)
+    .then(data => res.status(204).send(data))
+    .catch(err => res.send(err));
+  },
+
+  answerHelpful: (req, res) => {
+    model.markAnswerHelpful(req.params.answer_id)
+    .then(data => res.status(204).send(data))
+    .catch(err => res.send(err));
+  },
+
+  reportAnswer: (req, res) => {
+    model.reportAnswer(req.params.answer_id)
+    .then(data => res.status(204).send(data))
     .catch(err => res.send(err));
   },
 }

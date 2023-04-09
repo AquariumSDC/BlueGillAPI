@@ -15,9 +15,9 @@ router.post('/questions', controller.postQuestion);
 router.post('/questions/:question_id/answers', controller.postAnswer);
 
 // PUT
-router.put('/questions/:question_id/helpful', );
-router.put('/questions/:question_id/report');
-router.put('/answers/:answer_id/helpful')
-router.put('/answers/:answer_id/report')
+router.put('/questions/:question_id/helpful', controller.questionHelpful);
+router.put('/questions/:question_id/report', controller.reportQuestion);
+router.put('/answers/:answer_id/helpful', controller.answerHelpful);
+router.put('/answers/:answer_id/report', controller.reportAnswer);
 
 module.exports = router;
