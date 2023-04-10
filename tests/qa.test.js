@@ -20,7 +20,8 @@ afterAll(async () => {
 
 describe('QnA test suite', () => {
 
-  it('tests /qa/questions endpoint', async () => {
+  // GET DATA
+  it('tests GET /qa/questions endpoint', async () => {
     const res = await request(app)
     .get('/qa/questions')
     .query({ product_id: prodId });
@@ -28,7 +29,8 @@ describe('QnA test suite', () => {
     expect(res.body.id).toBe('1');
     expect(Array.isArray(res.body.results)).toBe(true);
     expect(res.body.results.length).toEqual(5);
-    expect(res.body.results).toEqual(expect.arrayContaining([{
+    expect(res.body.results).toEqual(
+      expect.arrayContaining([{
       "id": 3,
       "question_body": "Does this product run big or small?",
       "question_date": "1608535907083",
@@ -36,10 +38,11 @@ describe('QnA test suite', () => {
       "question_helpfulness": 8,
       "reported": 0,
       "answers": {}
-  }]));
+      }])
+    );
   });
 
-  it('tests /qa/answers endpoint', async () => {
+  it('tests GET /qa/questions/:question_id/answers endpoint', async () => {
     const res = await request(app)
     .get(`/qa/questions/${prodId}/answers`)
     .query({question_id: prodId})
@@ -49,6 +52,36 @@ describe('QnA test suite', () => {
           expect.objectContaining({
             photos: expect.any(Array)
           })
-        ])}))
+        ])
+      })
+    )
   })
+
+  // POST NEW
+  it('tests POST to /qa/questions endpoint', async () => {
+    const res = await request(app)
+    .post('/qa/questions')
+    .send({
+      "body": "If a hound howls in the woods, does that make traffic bad on I-5?",
+      "name" : "the wiz",
+      "email": "youWish@gg.com",
+      "product_id": 254
+    })
+    expect(res.statusCode).toBe(201);
+    expect(res.text).toBe('question posted');
+  })
+
+  it('tests POST to /qa/questions/:question_id/answers endpoint', async () => {
+    const res = await request(app)
+    .post(`/qa/questions/${prodId}/answers`)
+    .send({
+      "body": "The nucleus is the powerhouse of the cell",
+      "name" : "the wiz",
+      "email": "youWish@gg.com",
+      "photos": []
+    })
+    expect(res.statusCode).toBe(201);
+    expect(res.text).toBe('answer posted');
+  })
+
 });
