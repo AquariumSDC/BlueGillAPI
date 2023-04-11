@@ -38,8 +38,8 @@ module.exports = {
     .then(answers => {
       let question = {
         id: req.params.question_id,
-        page: 'placeholder',
-        count: 'placeholder',
+        page: req.params.page || 1,
+        count: req.params.count || 5,
         results: answers,
       }
       res.status(200).send(question);
