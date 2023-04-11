@@ -5,22 +5,14 @@ module.exports = {
   getQuestions: (req, res) => {
     model.getQuestionsById(req.query.product_id)
     .then(async questions => {
-      // GET ANSWERS FOR EACH QUESTION
+      // // GET ANSWERS FOR EACH QUESTION
       for (let question of questions) {
         question.answers = {};
         let answerList = await model.getAnswersById(question.id);
-        for (let answer of answerList) {
+        answerList.map(async answer => {
           question.answers[answer.id] = answer;
-        }
-      }
-      return questions;
-    })
-    .then(async questions => {
-      // GET PHOTOS FOR EACH ANSWER
-      for (let question of questions) {
-        for (let answer of Object.values(question.answers)) {
-          answer.photos = await model.getPhotosById(answer.id);
-        }
+          question.answers[answer.id].photos = await model.getPhotosById(answer.id);
+        })
       }
       return questions;
     })
