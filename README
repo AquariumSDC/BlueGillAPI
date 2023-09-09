@@ -1,1 +1,66 @@
 
+
+# BlueGillAPI
+
+[![Amazon AWS](https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)](https://aws.amazon.com/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
+[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+
+BlueGillAPI is an open-source project that provides a RESTful API for Aquarium SDC's BlueGill application. It was created to allow for the fast and secure access of data stored in the application.
+
+## Table of Contents
+
+* [Description](#Description)
+* [Technologies Used](#Technologies-Used)
+* [Installation and Setup](#Installation-and-Setup)
+* [Sample .env File](#Sample-.env-File)
+* [Authors and Contributors](#Authors-and-Contributors)
+* [Wins and Improvements](#Wins-and-Improvements)
+* [Tips for a Great Readme](#Tips-for-a-Great-Readme)
+
+## Description
+
+BlueGillAPI is a RESTful API that allows for the fast and secure access of data stored in the BlueGill application. It was built with Amazon AWS, PostgreSQL, Express.js, Node.js. The API can be used to create, read, update, and delete data within the application, and is used to power the 'Question and Answers' segment of the Black Clover ecommerce website.
+
+## Technologies Used
+
+* [Amazon AWS](https://aws.amazon.com/)
+* [PostgreSQL](https://www.postgresql.org/)
+* [Express.js](https://expressjs.com/)
+* [Node.js](https://nodejs.org/)
+
+## Installation and Setup
+
+To install and run the project:
+
+1. Clone the repository
+2. Run `npm install`
+3. Create a .env file with the necessary environment variables (see [Sample .env File](#Sample-.env-File) for an example)
+4. Run `npm run start` to start the server
+
+## Sample .env File
+
+```
+DB_HOST="localhost"
+DB_USER="postgres"
+DB_PASSWORD="password"
+DB_NAME="bluegill"
+```
+
+## Test Analysis and Results
+
+### GOAL - Review Benchmark takeaways, research and prescribe potential solution, and measure results
+
+ANALYSIS - Based on yesterday recap summary, high CPU usage is an indicitive cause for reduced backend RPS performance. Scaling infrastructure to match needs is a viable solution to realign performance with target metrics.
+Based on the typical trend of cost-effectiveness, horizontal scaling will be explored before vertical scaling.
+
+Baseline Requirement Met
+![Baseline Test Metric](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/98b13d00-1654-4f2f-aae7-04db537d311c/Untitled.png)
+
+Top Performance Achieved
+- Response Time (latency) - 282ms
+- Throughput - 394.5rps
+- ERR - 0.6%
+
+![Top Performance Test Metric](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/717558fb-636d-43e9-b56c-0e5a7bba22c9/Untitled.png)
