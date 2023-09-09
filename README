@@ -52,15 +52,15 @@ DB_NAME="bluegill"
 
 ### GOAL - Review Benchmark takeaways, research and prescribe potential solution, and measure results
 
-ANALYSIS - Based on yesterday recap summary, high CPU usage is an indicitive cause for reduced backend RPS performance. Scaling infrastructure to match needs is a viable solution to realign performance with target metrics.
-Based on the typical trend of cost-effectiveness, horizontal scaling will be explored before vertical scaling.
+ANALYSIS - High CPU usage is an indicative cause for reduced backend RPS performance. Scaling infrastructure to match needs is a viable solution to realign performance with target metrics.
+To maintain cost-effectiveness, horizontal scaling will be explored before vertical scaling. Will additionally add redundancy to service.
 
 Baseline Requirement Met
-![Baseline Test Metric](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/98b13d00-1654-4f2f-aae7-04db537d311c/Untitled.png)
+![Baseline Test Metric](https://www.notion.so/4-14-SDC-51ea9377a068469eacb6de2440a8bad7?pvs=4#37957f15f63e402fab3eacc1dc850793)
 
 Top Performance Achieved
 - Response Time (latency) - 282ms
 - Throughput - 394.5rps
 - ERR - 0.6%
 
-![Top Performance Test Metric](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/717558fb-636d-43e9-b56c-0e5a7bba22c9/Untitled.png)
+![Top Performance Test Metric](https://www.notion.so/4-14-SDC-51ea9377a068469eacb6de2440a8bad7?pvs=4#bdec61576b4946c287deaa020ed16d32)
