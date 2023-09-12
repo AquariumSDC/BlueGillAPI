@@ -1,5 +1,3 @@
-
-
 # BlueGillAPI
 
 ![Amazon AWS](https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
@@ -11,13 +9,13 @@ BlueGillAPI is an open-source project that provides a RESTful API for Aquarium S
 
 ## Table of Contents
 
-* [Description](#Description)
-* [Technologies Used](#Technologies-Used)
-* [Installation and Setup](#Installation-and-Setup)
-* [Sample .env File](#Sample-.env-File)
-* [Authors and Contributors](#Authors-and-Contributors)
-* [Wins and Improvements](#Wins-and-Improvements)
-* [Tips for a Great Readme](#Tips-for-a-Great-Readme)
+- [Description](#Description)
+- [Technologies Used](#Technologies-Used)
+- [Installation and Setup](#Installation-and-Setup)
+- [Sample .env File](#Sample-.env-File)
+- [Authors and Contributors](#Authors-and-Contributors)
+- [Wins and Improvements](#Wins-and-Improvements)
+- [Tips for a Great Readme](#Tips-for-a-Great-Readme)
 
 ## Description
 
@@ -25,10 +23,10 @@ BlueGillAPI is a RESTful API that allows for the fast and secure access of data 
 
 ## Technologies Used
 
-* [Amazon AWS](https://aws.amazon.com/)
-* [PostgreSQL](https://www.postgresql.org/)
-* [Express.js](https://expressjs.com/)
-* [Node.js](https://nodejs.org/)
+- [Amazon AWS](https://aws.amazon.com/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Express.js](https://expressjs.com/)
+- [Node.js](https://nodejs.org/)
 
 ## Installation and Setup
 
@@ -56,11 +54,12 @@ ANALYSIS - High CPU usage is an indicative cause for reduced backend RPS perform
 To maintain cost-effectiveness, horizontal scaling will be explored before vertical scaling. Will additionally add redundancy to service.
 
 Baseline Requirement Met
-![Baseline Test Metric](https://www.notion.so/4-14-SDC-51ea9377a068469eacb6de2440a8bad7?pvs=4#37957f15f63e402fab3eacc1dc850793)
+![Baseline Test Metric](tests/metrics/100 rps throughput baseline.png)
 
 Top Performance Achieved
+
 - Response Time (latency) - 282ms
 - Throughput - 394.5rps
 - ERR - 0.6%
 
-![Top Performance Test Metric](https://www.notion.so/4-14-SDC-51ea9377a068469eacb6de2440a8bad7?pvs=4#bdec61576b4946c287deaa020ed16d32)
+![Top Performance Test Metric](tests/metrics/400 rps throughput.png)
