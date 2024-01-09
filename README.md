@@ -13,7 +13,6 @@ BlueGillAPI is a RESTful API that allows for the fast and secure access of data 
 
 ## Technologies Used
 
-## Tech Used
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 [Amazon AWS](https://aws.amazon.com/)
 [PostgreSQL](https://www.postgresql.org/)
