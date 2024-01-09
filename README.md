@@ -6,9 +6,6 @@
 - [Technologies Used](#Technologies-Used)
 - [Installation and Setup](#Installation-and-Setup)
 - [Sample .env File](#Sample-.env-File)
-- [Authors and Contributors](#Authors-and-Contributors)
-- [Wins and Improvements](#Wins-and-Improvements)
-- [Tips for a Great Readme](#Tips-for-a-Great-Readme)
 
 ## Description
 
