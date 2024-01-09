@@ -1,12 +1,5 @@
 # BlueGillAPI
 
-![Amazon AWS](https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
-![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
-
-BlueGillAPI is an open-source project that provides a RESTful API for Aquarium SDC's BlueGill application. It was created to allow for the fast and secure access of data stored in the application.
-
 ## Table of Contents
 
 - [Description](#Description)
@@ -19,14 +12,16 @@ BlueGillAPI is an open-source project that provides a RESTful API for Aquarium S
 
 ## Description
 
-BlueGillAPI is a RESTful API that allows for the fast and secure access of data stored in the BlueGill application. It was built with Amazon AWS, PostgreSQL, Express.js, Node.js. The API can be used to create, read, update, and delete data within the application, and is used to power the 'Question and Answers' segment of the Black Clover ecommerce website.
+BlueGillAPI is a RESTful API that allows for the fast and secure access of data stored in the Black Clover e-commerce application.It was created to allow for the fast and secure access of data stored and is used to power the 'Question and Answers' segment of the Black Clover e-commerce website.
 
 ## Technologies Used
 
-- [Amazon AWS](https://aws.amazon.com/)
-- [PostgreSQL](https://www.postgresql.org/)
-- [Express.js](https://expressjs.com/)
-- [Node.js](https://nodejs.org/)
+## Tech Used
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+[Amazon AWS](https://aws.amazon.com/)
+[PostgreSQL](https://www.postgresql.org/)
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+[Node.js](https://nodejs.org/)
 
 ## Installation and Setup
 
