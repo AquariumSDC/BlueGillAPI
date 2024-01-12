@@ -1,4 +1,4 @@
-# BlueGillAPI
+# BluegillAPI
 
 ## Table of Contents
 
@@ -6,22 +6,25 @@
 - [Technologies Used](#Technologies-Used)
 - [Installation and Setup](#Installation-and-Setup)
 - [Sample .env File](#Sample-.env-File)
+- [Approach and Implementation](#approach-and-implementation)
+- [Test Analysis & Results](#test-analysis-and-results)
 
 ## Description
 
-BlueGillAPI is a RESTful API that allows for the fast and secure access of data stored in the Black Clover e-commerce application.It was created to allow for the fast and secure access of data stored and is used to power the 'Question and Answers' segment of the Black Clover e-commerce website.
+BluegillAPI is a RESTful API that allows for the fast and secure access of data stored for an e-commerce application. It was created to replace a legacy API service. The API supports endpoints for the "Questions and Answers" segment of the product page.
 
 ## Technologies Used
 
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-[Amazon AWS](https://aws.amazon.com/)
-[PostgreSQL](https://www.postgresql.org/)
+![Amazon AWS](https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
-[Node.js](https://nodejs.org/)
+![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
 
 ## Installation and Setup
 
-To install and run the project:
+To install and run:
 
 1. Clone the repository
 2. Run `npm install`
@@ -37,15 +40,9 @@ DB_PASSWORD="password"
 DB_NAME="bluegill"
 ```
 
-## Test Analysis and Results
+## Approach and Implementation
 
-### GOAL - Review Benchmark takeaways, research and prescribe potential solution, and measure results
-
-ANALYSIS - High CPU usage is an indicative cause for reduced backend RPS performance. Scaling infrastructure to match needs is a viable solution to realign performance with target metrics.
-To maintain cost-effectiveness, horizontal scaling will be explored before vertical scaling. Will additionally add redundancy to service.
-
-Baseline Requirement Met
-![Baseline Test Metric](tests/metrics/100 rps throughput baseline.png)
+## Results and Takeaways
 
 Top Performance Achieved
 
@@ -53,4 +50,4 @@ Top Performance Achieved
 - Throughput - 394.5rps
 - ERR - 0.6%
 
-![Top Performance Test Metric](tests/metrics/400 rps throughput.png)
+![Top Performance Test Metric](./assets/Loader.io-400CPS.png)
